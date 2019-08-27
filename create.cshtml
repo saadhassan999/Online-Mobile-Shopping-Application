@@ -1,0 +1,42 @@
+﻿@model myFirstApp_mobile_.Models.brand
+@{
+    ViewBag.Title = "create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<html>
+<head>
+    <title>My Brand</title>
+</head>
+<body>
+
+    <h2>Add new Brand</h2>
+    @using (Html.BeginForm("create", "Brand", FormMethod.Post))
+    { 
+    
+     <div>
+
+         @Html.LabelFor(model => model.brand_name)
+         <div>
+             @Html.TextBoxFor(model => model.brand_name)
+             
+         </div>
+         <div>
+             @Html.ValidationMessageFor(model => model.brand_name, "", new { @class="text-danger"})
+         </div>
+     </div>
+    <br />
+    <div>
+        
+       <input type="submit" value="save" class="btn btn-default" style="margin: 10px;margin-left: 38px;"/>
+
+
+    </div>
+    
+    }
+    
+    
+    
+
+</body>
+</html>

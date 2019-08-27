@@ -1,0 +1,64 @@
+﻿@model myFirstApp_mobile_.Models.mobile
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+    <h2> Delete Mobile Record</h2>
+
+    @using (Html.BeginForm("Delete", "Mobile", FormMethod.Post))
+    {
+        @Html.HiddenFor(model => model.mobile_id)
+
+        <div>
+            @Html.LabelFor(model => model.mobile_name)
+            <div>
+              @Html.TextBoxFor(model => model.mobile_name, new { @readonly="readonly"})
+            </div>
+            
+
+        </div>
+        <br />
+        <div>
+            @Html.LabelFor(model => model.mobile_price)
+            <div>
+                @Html.TextBoxFor(model => model.mobile_price, new { @readonly = "readonly" })
+            </div>
+           
+        </div>
+        <br />
+        <div>
+            @Html.LabelFor(model => model.mobile_model)
+            <div>
+                @Html.TextBoxFor(model => model.mobile_model, new { @readonly = "readonly" })
+            </div>
+           
+        </div>
+        <br />
+        <div>
+            @Html.LabelFor(model => model.brand_id)
+            <div>
+                @Html.TextBoxFor(model => model.brand_id, new { @readonly = "readonly" })
+            </div>
+           
+        </div>
+
+
+        <br />
+        <div>
+            <a onclick="return confirm('Are you sure to delete?')">
+                <input type="submit" value="Delete" class="btn btn-default" style="margin: 10px;margin-left: 38px;" />
+            </a>
+        </div>
+
+
+
+    }
+
+</body>
+</html>

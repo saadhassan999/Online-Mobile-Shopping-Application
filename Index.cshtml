@@ -1,0 +1,140 @@
+﻿@model myFirstApp_mobile_.Models.userRegistration
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html>
+<head>
+    <title>Registration</title>
+</head>
+
+<body>
+
+    
+    @using (Html.BeginForm("Index", "userRegistration", FormMethod.Post))
+    {
+       
+        @Html.AntiForgeryToken()
+
+       
+    <div class="form-horizontal">
+        <h2 style="margin-left: 203px;  padding-bottom: 14px;">Registration Form</h2>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.firstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.firstName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.firstName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+
+            @Html.LabelFor(model => model.lastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.lastName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.lastName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.emailAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.emailAddress, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.emailAddress, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.phoneNo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.phoneNo, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.phoneNo, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.PasswordFor(model => model.password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10" style="margin-left:291px;">
+                <button type="submit" class="btn btn-default">Register</button>
+            </div>
+
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-2" style="margin-left:291px;">
+                <label class="label-success">@ViewBag.Message</label>
+            </div>
+
+
+
+        </div>
+
+        
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-2" style="margin-left:291px;">
+                <label class="label-success">@ViewBag.ErrorMessage</label>
+            </div>
+        </div>
+    </div>
+
+        }
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+    
+    }

@@ -1,0 +1,71 @@
+﻿@using System.Linq
+@model myFirstApp_mobile_.Models.mobile
+@{
+    ViewBag.Title = "addMobile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<html>
+<head>
+    <title>add new mobile</title>
+</head>
+<body>
+
+    <h2>Add new Mobile</h2>
+    @using (Html.BeginForm("addMobile", "Mobile", FormMethod.Post))
+    {
+
+        <div>
+
+            @Html.LabelFor(x => x.mobile_name)
+            <div>
+                @Html.TextBoxFor(x => x.mobile_name)
+
+            </div>
+            <div>
+                @Html.ValidationMessageFor(model => model.mobile_name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+        <div>
+            @Html.LabelFor(x => x.mobile_price)
+            <div>
+                @Html.TextBoxFor(x => x.mobile_price)
+            </div>
+            <div>
+                @Html.ValidationMessageFor(x => x.mobile_price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+        <div>
+            @Html.LabelFor(x => x.mobile_model)
+            <div>
+                @Html.TextBoxFor(x => x.mobile_model)
+            </div>
+            <div>
+                @Html.ValidationMessageFor(x => x.mobile_model, "", new { @class = "text-danger" })
+            </div>
+
+        </div>
+
+        <div>
+            <h5 style="font-weight: bold;display: inline-block;max-width: 100%;margin-top: 19px;"> Choose Brands: </h5>
+
+
+            @Html.DropDownListFor(m => m.brand_id, new SelectList(ViewBag.Bra, "Value", "Text"),"select brands")
+          
+            
+        </div>
+        <div>
+
+            <input type="submit" value="Add" class="btn btn-default" style="margin: 10px;margin-left: 38px;" />
+
+        </div>
+
+    }
+
+
+    
+
+
+</body>
+</html>
